@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block BodyContent %}
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      {% for header in header_info %}
+        <div class="container" data-aos="fade-up">
+          <div class="section-header">
+            <h2>Contact</h2>
+            <p>{{ header.Header }}</p>
+          </div>
+
+          <div class="row gx-lg-0 gy-4">
+
+            <div class="col-lg-4">
+
+              <div class="info-container d-flex flex-column align-items-center justify-content-center">
+                <div class="info-item d-flex">
+                  <i class="bi bi-geo-alt flex-shrink-0"></i>
+                  <div>
+                    <h4>Location:</h4>
+                    <p>{{ header.location }}</p>
+                  </div>
+                </div><!-- End Info Item -->
+
+                <div class="info-item d-flex">
+                  <i class="bi bi-envelope flex-shrink-0"></i>
+                  <div>
+                    <h4>Email:</h4>
+                    <p>{{ header.email }}</p>
+                  </div>
+                </div><!-- End Info Item -->
+
+                <div class="info-item d-flex">
+                  <i class="bi bi-phone flex-shrink-0"></i>
+                  <div>
+                    <h4>Call:</h4>
+                    <p>{{ header.contact }}</p>
+                  </div>
+                </div><!-- End Info Item -->
+
+                <div class="info-item d-flex">
+                  <i class="bi bi-clock flex-shrink-0"></i>
+                  <div>
+                    <h4>Open Hours:</h4>
+                    <p>{{ header.opening_hour }}</p>
+                  </div>
+                </div><!-- End Info Item -->
+              </div>
+
+            </div>
+
+            <div class="col-lg-8">
+              <div class="form-group">
+                <h2> Your Data has been saved </h2>
+                <ul>
+                  <li> <a href="/">Click Here</a> to go back to <strong> <a href="/">Home</a> </strong></li>
+                  <li> <a href="{% url 'contact' %}">Click Here</a> to go back to <strong> <a href="{% url 'contact' %}">Contact</a> </strong></li>
+                </ul>
+              </div>
+            </div><!-- End Contact Form -->
+
+          </div>
+
+        </div>
+      {% endfor %}
+    </section><!-- End Contact Section -->
+
+{% endblock BodyContent %}

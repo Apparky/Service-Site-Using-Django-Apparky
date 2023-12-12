@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+
+{% block BodyContent %}
+
+    <!-- ======= Our Services Section ======= -->
+    <section id="services" class="services sections-bg">
+        <div class="container" data-aos="fade-up">
+  
+          <div class="section-header">
+            <h2>Our Services</h2>
+            <p>{{ serv_header }}</p>
+          </div>
+  
+          <div class="row gy-4" data-aos="fade-up" data-aos-delay="100">
+            {% for service in service %}
+              <div class="col-lg-4 col-md-6">
+                <div class="service-item  position-relative">
+                  <div class="icon">
+                    <i class="bi bi-activity"></i>
+                  </div>
+                  <h3>{{ service.service_name }}</h3>
+                  <p>{{ service.service_description_summary }}</p>
+                  <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+                </div>
+              </div><!-- End Service Item -->
+            {% endfor %}  
+          </div>
+  
+        </div>
+    </section><!-- End Our Services Section -->
+  
+    <!-- ======= Clients Section ======= -->
+    <section id="clients" class="clients">
+        <div class="container" data-aos="zoom-out">
+
+            <div class="section-header">
+                <h2>Our Happy Clients</h2>
+                <p>{{ happy_client }}</p>
+            </div>
+  
+            <div class="clients-slider swiper">
+                <div class="swiper-wrapper align-items-center">
+                  {% for client in clients %}
+                  <div class="swiper-slide"><img src="{{ MEDIA_URL }}{{ client.client_image }}" class="img-fluid" alt=""></div>
+                  {% endfor %}
+                </div>
+            </div>
+  
+        </div>
+    </section><!-- End Clients Section -->
+
+    <!-- ======= Stats Counter Section ======= -->
+    <section id="stats-counter" class="stats-counter">
+        <div class="container" data-aos="fade-up">
+  
+          <div class="row gy-4 align-items-center">
+  
+            <div class="col-lg-6">
+              <img src="static/img/stats-img.svg" alt="" class="img-fluid">
+            </div>
+  
+            <div class="col-lg-6">
+  
+              <div class="stats-item d-flex align-items-center">
+                <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
+                <p><strong>Happy Clients</strong> consequuntur quae diredo para mesta</p>
+              </div><!-- End Stats Item -->
+  
+              <div class="stats-item d-flex align-items-center">
+                <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
+                <p><strong>Projects</strong> adipisci atque cum quia aut</p>
+              </div><!-- End Stats Item -->
+  
+              <div class="stats-item d-flex align-items-center">
+                <span data-purecounter-start="0" data-purecounter-end="453" data-purecounter-duration="1" class="purecounter"></span>
+                <p><strong>Hours Of Support</strong> aut commodi quaerat</p>
+              </div><!-- End Stats Item -->
+  
+            </div>
+  
+          </div>
+  
+        </div>
+    </section><!-- End Stats Counter Section -->
+  
+
+    <!-- ======= Testimonials Section ======= -->
+    <section id="testimonials" class="testimonials">
+        <div class="container" data-aos="fade-up">
+  
+          <div class="section-header">
+            <h2>Testimonials</h2>
+            <p>{{ test_header }}</p>
+          </div>
+  
+          <div class="slides-3 swiper" data-aos="fade-up" data-aos-delay="100">
+            <div class="swiper-wrapper">
+              {% for test in testimonials %}
+                <div class="swiper-slide">
+                  <div class="testimonial-wrap">
+                    <div class="testimonial-item">
+                      <div class="d-flex align-items-center">
+                        <img src="{{ MEDIA_URL }}{{ test.image }}" class="testimonial-img flex-shrink-0" alt="">
+                        <div>
+                          <h3>{{ test.name }}</h3>
+                          <h4>{{ test.designation }}</h4>
+                          <div class="stars">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                          </div>
+                        </div>
+                      </div>
+                      <p>
+                        <i class="bi bi-quote quote-icon-left"></i>
+                        {{ test.testimonials }}
+                        <i class="bi bi-quote quote-icon-right"></i>
+                      </p>
+                    </div>
+                  </div>
+                </div><!-- End testimonial item -->
+              {% endfor %}
+  
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+  
+        </div>
+    </section><!-- End Testimonials Section -->
+  
+
+
+{% endblock BodyContent %}
+
