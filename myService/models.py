@@ -45,11 +45,11 @@ class Our_Team(models.Model):
 
 
 class Contact_Header_and_Info(models.Model):
-    Header = models.TextField(null=True, blank=True, default='Put Contact Header Here')
-    location = models.CharField(max_length=20, null=True, blank=True, default='Put Location Here')
-    email = models.EmailField(null=True, blank=True, default='your@email.com')
-    contact = models.CharField(max_length=100, null=True, blank=True, default=0)
-    opening_hour = models.CharField(max_length=200, null=True, blank=True, default='Ex. Mon-Sat 10.00 AM - 09:00 PM')
+    Header = models.TextField(null=True, blank=True, default=None, help_text='Put Contact Header Here')
+    location = models.CharField(max_length=20, null=True, blank=True, default=None, help_text='Put Location Here')
+    email = models.EmailField(null=True, blank=True, default=None, help_text='Enter Your email as "your@email.com"')
+    contact = models.CharField(max_length=100, null=True, blank=True, default=None, help_text='Enter your Contact No.')
+    opening_hour = models.CharField(max_length=200, null=True, blank=True, default=None, help_text='Ex. Mon-Sat 10.00 AM - 09:00 PM')
     status = models.BooleanField(null=False, blank=False, default=False)
 
     def __str__(self):
