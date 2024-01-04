@@ -31,7 +31,7 @@ def portfolio_details(request, p_slug):
 
 
 def contact_us(request):
-    contact_header_info = Contact_Header_and_Info_dumy.objects.filter(status=1)
+    contact_header_info = Contact_Header_and_Info.objects.filter(status=1)
     if request.method == "POST":
         contact = Contact_Us_Form()
 
