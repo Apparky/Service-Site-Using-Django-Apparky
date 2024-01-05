@@ -45,11 +45,30 @@ class Our_Team(models.Model):
 
 
 class Contact_Header_and_Info(models.Model):
+    locations = (
+        ('Kolkata 28', 'Kolkata 28'),
+        ('Berhampore, Murshidabad', 'Berhampore, Murshidabad')
+    )
+    emails = (
+        ('apparky@protonmail.com', 'apparky@protonmain.com'),
+        ('appariun.connect@gmail.com', 'appariun.connect@gmail.com')
+    )
+
+    contacts = (
+        ('1234567890', '1234567890'),
+        ('0987654321', '0987654321')
+    )
+
+    opening_hours = (
+        ('Mon-Sat 10.00 AM - 09:00 PM', 'Mon-Sat 10.00 AM - 09:00 PM'),
+        ('Sun-Sat 8.00 AM - 11:00 PM', 'Sun-Sat 8.00 AM - 11:00 PM')
+    )
+
     Header = models.TextField(null=True, blank=True, default=None, help_text='Put Contact Header Here')
-    location = models.CharField(max_length=20, null=True, blank=True, default=None, help_text='Put Location Here')
-    email = models.EmailField(null=True, blank=True, default=None, help_text='Enter Your email as "your@email.com"')
-    contact = models.CharField(max_length=100, null=True, blank=True, default=None, help_text='Enter your Contact No.')
-    opening_hour = models.CharField(max_length=200, null=True, blank=True, default=None, help_text='Ex. Mon-Sat 10.00 AM - 09:00 PM')
+    location = models.CharField(max_length=30, choices=locations, null=True, blank=True, default=None, help_text='Put Location Here')
+    email = models.EmailField(null=True, choices=emails, blank=True, default=None, help_text='Enter Your email as "your@email.com"')
+    contact = models.CharField(max_length=100, choices=contacts, null=True, blank=True, default=None, help_text='Enter your Contact No.')
+    opening_hour = models.CharField(max_length=200, choices=opening_hours, null=True, blank=True, default=None, help_text='Ex. Mon-Sat 10.00 AM - 09:00 PM')
     status = models.BooleanField(null=False, blank=False, default=False)
 
     def __str__(self):
@@ -109,7 +128,7 @@ class Testimonials_Header(models.Model):
         return f'{self.Header} --- {self.status}'
 
 
-class Testimonials(models.Model):
+class Testimonial(models.Model):
     review_set = (
         ('Excellent', 'Excellent'),
         ('Good', 'Good'),
