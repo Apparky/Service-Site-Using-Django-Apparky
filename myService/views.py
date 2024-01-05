@@ -72,7 +72,7 @@ def services(request):
     for header in testimonial_header:
         test_header += f'{header.Header}. '
 
-    testimonials = Testimonials.objects.filter(status=1)
+    testimonials = Testimonial.objects.filter(status=1)
 
     return render(request, 'service.html',
                   {'serv_header': serv_header, 'service': all_services, 'happy_client': happy_client,
