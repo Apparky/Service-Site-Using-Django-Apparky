@@ -122,7 +122,7 @@ def blog(request):
 
 def blog_details(request, b_slug):
     blogs = Blog_Content.objects.filter(Blog_Slug=b_slug)
-    return render(request, 'blog-details.html')
+    return render(request, 'blog-details.html', {'blogs': blogs})
 
 
 

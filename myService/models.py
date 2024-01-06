@@ -239,9 +239,18 @@ class Blog_header(models.Model):
 
 
 class Blog_Content(models.Model):
+    post_category = (
+        ('Technology', 'Technology'),
+        ('Sports', 'Sports'),
+        ('Politics', 'Politics'),
+        ('Entertainment', 'Entertainment'),
+        ('Finance', 'Finance'),
+        ('Others', 'Others')
+    )
     Blog_Title = models.CharField(max_length=100, unique=True, null=True, blank=True, default='Blog Title', help_text='***** Add Blog Title Over Here *****')
     Blog_Summary = models.TextField(null=True, blank=True, default='Blog Summary', help_text='***** Add Blog Summary Over Here ***** ')
     Blog_Image = models.ImageField(null=True, blank=True, upload_to='media/images/', help_text='***** Set Blog Image Over Here *****')
+    Blog_post_category = models.CharField(max_length=100, blank=True, choices=post_category, help_text='***** Add Post Category Here *****')
     Blog_ALT_TAG = models.CharField(max_length=100, null=True, blank=True, default='Blog ALT TAG', help_text='***** Put ALT TAG for SEO perpouses *****')
     Blog_Slug = models.CharField(max_length=100, unique=True, null=True, blank=True, default='Blog-Slug', help_text='***** Put Blog Title and Replace it by ( - ) is Recomended *****')
 
@@ -295,7 +304,7 @@ class Blog_Content(models.Model):
     Blog_Display_Status = models.BooleanField(null=False, blank=False, default=False, help_text='***** Check This box If you wanna Display this on your Web')
 
     def __str__(self):
-        return f'{self.Blog_Title} by {self.Blog_Author} at {self.Blog_Date}'
+        return f'{self.Blog_Title} by {self.Blog_Author_Name} at {self.Blog_Post_Date} and the status of display is ----- // ----- {self.Blog_Display_Status}'
 
 
 
